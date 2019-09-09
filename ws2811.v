@@ -84,6 +84,10 @@ module ws2811
    assign data_request = reset_almost_done || led_almost_done;
    assign new_address  = (state == STATE_PRE) && (current_bit == 7);
    
+   initial begin
+      DO = 0;
+   end	
+	
    always @ (posedge clk) begin
       if (reset) begin
          address <= 0;
